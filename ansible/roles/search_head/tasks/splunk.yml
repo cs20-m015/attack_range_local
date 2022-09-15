@@ -28,11 +28,11 @@
   debug: msg='splunk is already installed under /opt/splunk'
   when: splunk_path.stat.exists
 
-- name: download splunk
+- name: copy splunk (optimization)
   tags: install
-  get_url:
-    url: '{{ splunk_url }}'
-    dest: /opt/
+  ansible.builtin.copy:
+    src: ~/Downloads/splunk-8.0.2-a7f645ddaf91-Linux-x86_64.tgz
+    dest: /opt/{{splunk_binary}}
   when: splunk_path.stat.exists == false
 
 - name: install splunk binary

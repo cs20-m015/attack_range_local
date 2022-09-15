@@ -1153,6 +1153,10 @@
           <GrantedAccess>0x143A</GrantedAccess>
         </Rule>
         <Rule groupRelation="and">
+          <TargetImage name="technique_id=T1003,technique_name=Credential Dumping" condition="is">C:\Windows\system32\lsass.exe</TargetImage>
+          <GrantedAccess>0x40</GrantedAccess>
+        </Rule>
+        <Rule groupRelation="and">
           <TargetImage name="technique_id=T1003,technique_name=Credential Dumping" condition="image">lsass.exe</TargetImage>
           <SourceImage name="technique_id=T1003,technique_name=Credential Dumping" condition="image">wsmprovhost.exe</SourceImage>
         </Rule>

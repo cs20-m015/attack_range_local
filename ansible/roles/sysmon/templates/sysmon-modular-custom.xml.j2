@@ -429,6 +429,10 @@
         </Rule>
         <CommandLine name="technique_id=T1218.011,technique_name=Defense Evasion" condition="contains all">rundll32.exe;user32.dll,LockWorkStation</CommandLine>
         <OriginalFileName name="technique_id=T1485,technique_name=Data Destruction" condition="is">Cipher.exe</OriginalFileName>
+        <Rule name="Execute Windows AdFind Exe" groupRelation="and">
+          <CommandLine name="technique_id=T1018,technique_name=Discovery" condition="contains any"> -f ; -b </CommandLine>
+          <CommandLine name="technique_id=T1018,technique_name=Discovery" condition="contains any">objectcategory; -gcb ; -sc </CommandLine>
+        </Rule>
       </ProcessCreate>
     </RuleGroup>
     <!-- Event ID 1 == Process Creation - Excludes -->

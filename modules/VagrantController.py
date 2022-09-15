@@ -84,10 +84,13 @@ class VagrantController():
             v1.halt(vm_name=target)
 
 
-    def resume(self):
+    def resume(self, target=""):
         print("[action] > resume\n")
         v1 = vagrant.Vagrant('vagrant/', quiet_stdout=False)
-        v1.up()
+        if target == "":
+            v1.up()
+        else:
+            v1.up(vm_name=target)
 
 
     def simulate(self, target, simulation_techniques, simulation_atomics):

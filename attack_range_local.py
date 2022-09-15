@@ -122,7 +122,10 @@ starting program loaded for B1 battle droid
             controller.stop()
 
     if action == 'resume':
-        controller.resume()
+        if target:
+            controller.resume(target)
+        else:
+            controller.resume()
 
     if action == 'simulate':
         controller.simulate(target, simulation_techniques, simulation_atomics)

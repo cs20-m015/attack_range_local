@@ -2009,6 +2009,7 @@
         <TargetObject name="technique_id=T1047,technique_name=Windows Management Instrumentation" condition="contains all">HKLM\SYSTEM\;Control\WMI\autologger\senseeventlog</TargetObject>
         <TargetObject name="technique_id=T1047,technique_name=Windows Management Instrumentation" condition="contains all">HKLM\SYSTEM\;Control\WMI\EtwMaxLoggers</TargetObject>
         <TargetObject name="technique_id=T1047,technique_name=Windows Management Instrumentation" condition="contains all">HKLM\SYSTEM\;Control\WMI\Security</TargetObject>
+        <TargetObject name="technique_id=T1547.001,technique_name=Registry Run Keys / Startup Folder" condition="contains">\CurrentVersion\Policies\Explorer\run</TargetObject>
       </RegistryEvent>
     </RuleGroup>
     <!-- Event ID 12,13,14 == RegObject added/deleted, RegValue Set, RegObject Renamed - Excludes -->

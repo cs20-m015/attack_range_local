@@ -1,0 +1,31 @@
+name: Suspicious Remote Thread Created
+source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/create_remote_thread/sysmon_susp_remote_thread.yml
+version: 1
+date: '2022-08-18'
+author: Perez Diego (@darkquassar), oscd.community, Markus Lettner
+type: Anomaly
+datamodel:
+- Endpoint
+description: This search is to identifies a suspicous processes (those we would not expect to behave in this way like word.exe or outlook.exe) creating remote threads on other processes.
+search: '`sysmon` EventCode=8 SourceImage IN ("*\\bash.exe", "*\\cvtres.exe", "*\\defrag.exe", "*\\dnx.exe", "*\\esentutl.exe", 
+"*\\excel.exe", "*\\expand.exe", "*\\explorer.exe", "*\\find.exe", "*\\findstr.exe", "*\\forfiles.exe", "*\\gpupdate.exe", "*\\hh.exe", 
+"*\\iexplore.exe", "*\\installutil.exe", "*\\lync.exe", "*\\makecab.exe", "*\\mDNSResponder.exe", "*\\monitoringhost.exe", "*\\msbuild.exe", 
+"*\\mshta.exe", "*\\msiexec.exe", "*\\mspaint.exe", "*\\outlook.exe", "*\\ping.exe", "*\\powerpnt.exe", "*\\provtool.exe", "*\\python.exe", 
+"*\\regsvr32.exe", "*\\robocopy.exe", "*\\runonce.exe", "*\\sapcimc.exe", "*\\schtasks.exe", "*\\smartscreen.exe", "*\\spoolsv.exe", 
+"*\\tstheme.exe", "*\\userinit.exe", "*\\vssadmin.exe", "*\\vssvc.exe", "*\\w3wp.exe", "*\\winlogon.exe", "*\\winscp.exe", "*\\wmic.exe", 
+"*\\word.exe", "*\\wscript.exe") 
+AND NOT (
+  (SourceImage="C:\\Windows\\System32\\winlogon.exe" AND TargetImage="C:\\Windows\\System32\\csrss.exe") 
+  OR (SourceImage="C:\\Windows\\System32\\provtool.exe" AND TargetProcessId=0) 
+  OR (SourceImage="C:\\Windows\\System32\\VSSVC.exe" AND TargetImage="*System*")) 
+| stats
+    count min(_time) as firstTime max(_time) as lastTime by Computer SourceImage SourceProcessId SourceUser TargetImage TargetProcessId TargetUser StartAddress EventCode 
+| `security_content_ctime(firstTime)` 
+| `security_content_ctime(lastTime)`'
+references:
+  - Personal research, statistical analysis
+  - https://lolbas-project.github.io
+tags:
+
+  mitre_attack_id:
+  - T1055

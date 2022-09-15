@@ -1,0 +1,20 @@
+name: PowerShell Rundll32 Remote Thread Creation
+source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/create_remote_thread/sysmon_susp_powershell_rundll32.yml
+version: 1
+date: '2022-08-18'
+author: Florian Roth, Markus Lettner
+type: Anomaly
+datamodel:
+- Endpoint
+description: Detects PowerShell remote thread creation in Rundll32.exe.
+search: '`sysmon` EventCode=8 SourceImage IN ("*\\powershell.exe", "*\\pwsh.exe") AND TargetImage="*\\rundll32.exe"
+| stats
+    count min(_time) as firstTime max(_time) as lastTime by Computer SourceImage SourceProcessId SourceUser TargetImage TargetProcessId TargetUser StartAddress EventCode 
+| `security_content_ctime(firstTime)` 
+| `security_content_ctime(lastTime)`'
+references:
+  - https://www.fireeye.com/blog/threat-research/2018/06/bring-your-own-land-novel-red-teaming-technique.html
+tags:
+  mitre_attack_id:
+  - T1218.011
+  - T1059.001

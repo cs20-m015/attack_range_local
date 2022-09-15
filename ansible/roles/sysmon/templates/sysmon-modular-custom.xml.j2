@@ -169,9 +169,13 @@
           <OriginalFileName name="technique_id=T1003,technique_name=Credential Dumping" condition="is">esentutl.exe</OriginalFileName>
           <CommandLine name="technique_id=T1003,technique_name=Credential Dumping" condition="contains all">/y;/vss/d</CommandLine>
         </Rule>
-        <CommandLine name="technique_id=T1490,technique_name=Inhibit System Recovery" condition="contains all">vssadmin.exe delete</CommandLine>
-        <CommandLine name="technique_id=T1490,technique_name=Inhibit System Recovery" condition="contains all">wbadmin.exe delete</CommandLine>
-        <CommandLine name="technique_id=T1490,technique_name=Inhibit System Recovery" condition="contains all">bcedit.exe /set</CommandLine>
+        <CommandLine name="technique_id=T1490,technique_name=Inhibit System Recovery" condition="contains all">vssadmin.exe;delete</CommandLine>
+        <CommandLine name="technique_id=T1490,technique_name=Inhibit System Recovery" condition="contains all">wbadmin.exe;delete</CommandLine>
+        <CommandLine name="technique_id=T1490,technique_name=Inhibit System Recovery" condition="contains all">bcdedit.exe;/set</CommandLine>
+        <Rule name="Bcdedit Command Back To Normal Mode Boot" groupRelation="and">
+          <OriginalFileName name="technique_id=T1490,technique_name=Inhibit System Recovery" condition="is">bcdedit.exe</OriginalFileName>
+          <CommandLine name="technique_id=T1490,technique_name=Inhibit System Recovery" condition="contains all"> /deletevalue;{current};safeboot</CommandLine>
+        </Rule>
         <CommandLine name="technique_id=T1127,technique_name=dfsvc.exe Making Network Connections" condition="contains">rundll32.exe dfshim.dll,ShOpenVerbApplication http://</CommandLine>
         <Image name="technique_id=T1218,technique_name=Signed Binary Proxy Execution" condition="is">diskshadow.exe</Image>
         <CommandLine name="technique_id=T1218,technique_name=Signed Binary Proxy Execution" condition="contains all">diskshadow.exe /s</CommandLine>

@@ -3,11 +3,10 @@
     path: /opt/splunk/etc/apps/Splunk_SA_CIM
   register: cim_app
 
-- name: download CIM app from S3 bucket
-  get_url:
-    url: '{{ s3_bucket_url }}/{{ splunk_cim_app }}'
+- name: copy CIM app to splunk
+  copy:
+    src: ~/Downloads/splunk-common-information-model-cim_501.tgz
     dest: /tmp/cim_app.tgz
-  when: cim_app.stat.exists == False
 
 - name: Install cim app via REST
   uri:

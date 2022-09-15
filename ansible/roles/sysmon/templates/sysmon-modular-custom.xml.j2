@@ -423,6 +423,10 @@
           <CommandLine name="technique_id=T1202,technique_name=Remote File Copy" condition="contains all">wsl.exe --exec bash</CommandLine>
           <CommandLine name="technique_id=T1202,technique_name=Remote File Copy" condition="contains all">/dev/tcp</CommandLine>
         </Rule>
+        <Rule name="Anomalous Usage of 7zip" groupRelation="or">
+          <CommandLine name="technique_id=T1560.001,technique_name=Archive via Utility" condition="is">rundll32.exe;7z</CommandLine>
+          <CommandLine name="technique_id=T1560.001,technique_name=Archive via Utility" condition="is">runhost.exe;7z</CommandLine>
+        </Rule>
       </ProcessCreate>
     </RuleGroup>
     <!-- Event ID 1 == Process Creation - Excludes -->

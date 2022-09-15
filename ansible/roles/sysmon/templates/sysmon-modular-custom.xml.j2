@@ -434,6 +434,7 @@
           <CommandLine name="technique_id=T1018,technique_name=Discovery" condition="contains any">objectcategory; -gcb ; -sc </CommandLine>
         </Rule>
         <OriginalFileName name="technique_name=Discovery" condition="is">SharpHound.exe</OriginalFileName>
+        <OriginalFileName name="technique_id=T1020,technique_name=Automated Exfiltration" condition="is">rclone.exe</OriginalFileName>
       </ProcessCreate>
     </RuleGroup>
     <!-- Event ID 1 == Process Creation - Excludes -->

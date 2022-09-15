@@ -1745,6 +1745,8 @@
         <TargetObject name="technique_id=T1547.004,technique_name=Winlogon Helper DLL" condition="begin with">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\VmApplet</TargetObject>
         <TargetObject name="technique_id=T1547.004,technique_name=Winlogon Helper DLL" condition="begin with">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Specialaccounts\userlist</TargetObject>
         <TargetObject name="technique_id=T1547.004,technique_name=Winlogon Helper DLL" condition="begin with">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Uihostl</TargetObject>
+        <TargetObject name="technique_id=T1547,technique_name=Boot or Logon Autostart Execution" condition="contains all">SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon;DefaultPassword</TargetObject>
+        <TargetObject name="technique_id=T1547,technique_name=Boot or Logon Autostart Execution" condition="contains all">SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon;DefaultUserName </TargetObject>
         <TargetObject condition="begin with">HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32</TargetObject>
         <TargetObject condition="begin with">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32</TargetObject>
         <TargetObject name="technique_id=T1547.001,technique_name=Registry Run Keys / Start Folder" condition="begin with">HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\BootExecute</TargetObject>

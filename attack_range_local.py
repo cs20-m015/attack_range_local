@@ -116,7 +116,10 @@ starting program loaded for B1 battle droid
         controller.destroy()
 
     if action == 'stop':
-        controller.stop()
+        if target:
+            controller.stop(target)
+        else:
+            controller.stop()
 
     if action == 'resume':
         controller.resume()

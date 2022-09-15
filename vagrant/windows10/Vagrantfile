@@ -1,10 +1,15 @@
 config.vm.define "attack-range-win10" do |config|
   VM_NAME_WIN= "attack-range-win10"
   config.vm.box = "d1vious/windows10"
+  #config.vm.box = "msedge-win10"
+  #config.vm.box = "peru/windows-10-enterprise-x64-eval"
+  #config.vm.box_version = "20220801.01"
   config.vm.hostname = "win10"
   config.vm.boot_timeout = 600
   config.vm.communicator = "winrm"
   config.winrm.basic_auth_only = true
+  # config.winrm.password = "Passw0rd!"
+  # config.winrm.username = "IEUser"
   config.winrm.timeout = 300
   config.winrm.retry_limit = 20
   config.vm.network "forwarded_port", guest: 5985, host: 5985
@@ -18,6 +23,7 @@ config.vm.define "attack-range-win10" do |config|
         splunk_indexer_ip: "{{ splunk_server_private_ip }}",
         caldera_server_ip: '{{ caldera_server_private_ip }}',
         win_password: '{{ win_password }}',
+        #win_password: 'Passw0rd!',
         splunk_uf_win_url: '{{ splunk_uf_win_url }}',
         nxlog_url: '{{ nxlog_url }}',
         install_dsp: '{{ install_dsp }}',
@@ -42,7 +48,8 @@ config.vm.define "attack-range-win10" do |config|
     vb.customize ["modifyvm", :id, "--memory", {{ windows_client_memory }}]
     vb.customize ["modifyvm", :id, "--cpus", {{ windows_client_cpus }}]
     vb.customize ["modifyvm", :id, "--vram", "32"]
-    vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
+    vb.customize ["modifyvm", :id, "--clipboard", "hosttoguest"]
+    vb.customize ["modifyvm", :id, "--draganddrop", "hosttoguest"]
     vb.customize ["setextradata", "global", "GUI/SuppressMessages", "all" ]
   end
 end

@@ -18,7 +18,7 @@
     source: XmlWinEventLog:Security
     sourcetype: WinEventLog
     index: test
-  enabled: True
+  enabled: False
 
 - name: windows_system_events
   dump_parameters:
@@ -29,7 +29,7 @@
     source: XmlWinEventLog:system
     sourcetype: WinEventLog
     index: test
-  enabled: True
+  enabled: False
 
 - name: powershell_events
   dump_parameters:
@@ -40,7 +40,7 @@
     source: WinEventLog:Microsoft-Windows-PowerShell/Operational
     sourcetype: wineventlog
     index: test
-  enabled: True
+  enabled: False
 
 - name: stream_http_events
   dump_parameters:

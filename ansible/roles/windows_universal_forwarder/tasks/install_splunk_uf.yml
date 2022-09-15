@@ -7,10 +7,10 @@
 #   debug:
 #     var: output
 
-- name: Download Splunk UF from Splunk website
-  win_shell: |
-    [Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls"
-    (New-Object System.Net.WebClient).DownloadFile("{{ splunk_uf_win_url }}", "C:\splunkuf.msi")
+- name: copy Splunk UF to virtual host
+  win_copy:
+    src: ~/Downloads/splunkforwarder-8.0.2-a7f645ddaf91-x64-release.msi
+    dest: C:\splunkuf.msi
 
 - name: Install Splunk_UF MSI
   win_package:

@@ -427,6 +427,7 @@
           <CommandLine name="technique_id=T1560.001,technique_name=Archive via Utility" condition="is">rundll32.exe;7z</CommandLine>
           <CommandLine name="technique_id=T1560.001,technique_name=Archive via Utility" condition="is">runhost.exe;7z</CommandLine>
         </Rule>
+        <CommandLine name="technique_id=T1218.011,technique_name=Defense Evasion" condition="contains all">rundll32.exe;user32.dll,LockWorkStation</CommandLine>
       </ProcessCreate>
     </RuleGroup>
     <!-- Event ID 1 == Process Creation - Excludes -->

@@ -79,7 +79,7 @@ class VagrantController():
         print("[action] > stop\n")
         v1 = vagrant.Vagrant('vagrant/', quiet_stdout=False)
         if target == "":
-        v1.halt()
+            v1.halt()
         else:
             v1.halt(vm_name=target)
 

@@ -1,0 +1,10 @@
+---
+- name: create user bob
+  ansible.windows.win_user:
+    name: bob
+    password: P@ssword
+    state: present
+    home_directory: 'C:\Users\bob\'
+    profile: 'C:\Users\bob'
+    groups:
+      - Users

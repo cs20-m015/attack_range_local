@@ -1,0 +1,5 @@
+---
+- include: create-unpriv-user.yml
+- include: setup-folderstructure.yml
+- include: install-apps.yml
+- include: disable-defender.yml

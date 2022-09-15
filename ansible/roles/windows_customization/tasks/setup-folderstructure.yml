@@ -1,0 +1,22 @@
+---
+- name: Copy fake documents to host
+  win_copy:
+    src: ~/testfiles/documents
+    dest: '%UserProfile%\Documents'
+
+
+- name: Copy fake pictures to host
+  win_copy:
+    src: ~/testfiles/pictures
+    dest: '%UserProfile%\Pictures'
+
+
+- name: Copy fake videos to host
+  win_copy:
+    src: ~/testfiles/videos
+    dest: '%UserProfile%\Videos'
+
+- name : Copy fake files to Desktop
+  win_copy:
+    src: ~/testfiles/desktop
+    dest: '%UserProfile%\Desktop'

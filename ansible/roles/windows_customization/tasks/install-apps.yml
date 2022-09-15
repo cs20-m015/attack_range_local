@@ -1,0 +1,8 @@
+---
+- name: install firefox
+  win_chocolatey:
+    name: firefox
+
+- name: install notepad++
+  win_chocolatey:
+    name: notepadplusplus

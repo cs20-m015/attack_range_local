@@ -1,0 +1,182 @@
+name: Ransomware detection test
+tests:
+- name: Add DefaultUser And Password In Registry
+  file: add_defaultuser_and_password_in_registry.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: Allow Network Discovery In Firewall
+  file: allow_network_discovery_in_firewall.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: Anomalous usage of 7zip
+  file: anomalous_usage_of_7zip.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: Bcdedit Command Back To Normal Mode Boot
+  file: bcdedit_command_back_to_normal_mode_boot.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: Clear Unallocated Sector Using Cipher App
+  file: clear_unallocated_sector_using_cipher_app.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: Common Ransomware Extensions
+  file: common_ransomware_extensions.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: Deleting Shadow Copies
+  file: deleting_shadow_copies.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: Detect Credential Dumping through LSASS access
+  file: detect_credential_dumping_through_lsass_access.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: Detect RClone Command-Line Usage
+  file: detect_rclone_command_line_usage.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: Detect SharpHound Usage
+  file: detect_sharphound_usage.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: Disable Logs Using WevtUtil
+  file: disable_logs_using_wevtutil.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: Disable Windows Behaviour Monitoring
+  file: disable_windows_behavior_monitoring.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: Excessive Service Stop Attempt
+  file: excessive_service_stop_attempt.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: Execute Javascript With Jscript COM CLSID
+  file: execute_javascript_with_jscript_com_clsid.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: Fsutil Zeroing File
+  file: fsutil_zeroing_file.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: High Process Termination Frequency
+  file: high_process_termination_frequency.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: Modification of Wallpaper
+  file: modification_of_wallpaper.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: Office Application Drop Executable
+  file: office_application_drop_executable.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: Office Product Spawn CMD OR Powershell Process
+  file: office_product_spawn_cmd_powershell_process.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: Powershell Disable Security Monitoring
+  file: powershell_disable_security_monitoring.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: Suspicious Remote Thread Created
+  file: suspicious_remote_thread_created.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: PowerShell Rundll32 Remote Thread Creation
+  file: suspicious_powershell_rundll32.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: Ransomware Notes bulk creation
+  file: ransomware_notes_bulk_creation.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: Recursive Delete of Directory In Batch CMD
+  file: recursive_delete_of_directory_in_batch_cmd.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: Registry Keys Used For Persistence
+  file: registry_keys_used_for_persistence.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: Resize ShadowStorage volume
+  file: resize_shadowstorage_volume.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: Rundll32 LockWorkstation
+  file: rundll32_lockworkstation.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: Suspicious Scheduled Task from Public Directory
+  file: suspicious_scheduled_task_from_public_directory.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: System Processes Run From Unexpected Locations
+  file: system_processes_run_from_unexpected_locations.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: Time Provider Persistence Registry
+  file: time_provider_persistence_registry.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: Uninstall App Using MsiExec
+  file: uninstall_app_using_msiexec.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: WBAdmin Delete System Backups
+  file: wbadmin_delete_system_backups.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: Windows AdFind Exe
+  file: windows_adfind_exe.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: Windows Raccine Scheduled Task Deletion
+  file: windows_raccine_scheduled_task_deletion.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: Windows Registry Modification for Safe Mode Persistence
+  file: windows_registry_modification_for_safe_mode_persistence.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
+- name: Windows Security Account Manager Stopped
+  file: windows_security_account_manager_stopped.yml
+  pass_condition: '| stats count | where count > 0'
+  earliest_time: '-24h'
+  latest_time: 'now'
